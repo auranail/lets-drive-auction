@@ -10,14 +10,22 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <div class="logo">
-                <h1>🚗 Let's Drive Auction</h1>
-            </div>
+            <a href="#home" class="logo">
+                <span class="logo-icon">🚗</span>
+                <span class="logo-text">Let's Drive Auction</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#auctions">Auctions</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="btn btn-nav">Get Started</a></li>
             </ul>
         </div>
     </nav>
@@ -25,89 +33,293 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h2>Find Your Dream Car</h2>
-            <p>Premium vehicle auctions at unbeatable prices</p>
-            <button class="btn btn-primary">Browse Auctions</button>
+            <span class="hero-badge">🏁 Trusted by 10,000+ buyers</span>
+            <h1>Find Your Dream Car<br>at the Best Price</h1>
+            <p>Premium vehicle auctions — verified listings, competitive bids, and a seamless buying experience from start to finish.</p>
+            <div class="hero-actions">
+                <a href="#auctions" class="btn btn-primary">Browse Auctions</a>
+                <a href="#how-it-works" class="btn btn-outline">How It Works</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <strong>500+</strong>
+                    <span>Active Listings</span>
+                </div>
+                <div class="stat">
+                    <strong>$12M+</strong>
+                    <span>Vehicles Sold</span>
+                </div>
+                <div class="stat">
+                    <strong>10K+</strong>
+                    <span>Happy Buyers</span>
+                </div>
+            </div>
         </div>
-    </section>
-
-    <!-- Auctions Section -->
-    <section id="auctions" class="auctions">
-        <div class="container">
-            <h2>Featured Auctions</h2>
-            <div class="auction-grid">
-                <!-- Auction Card 1 -->
-                <div class="auction-card">
-                    <div class="auction-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
-                    <div class="auction-info">
-                        <h3>2022 Tesla Model 3</h3>
-                        <p class="price">Starting Bid: $25,000</p>
-                        <p class="details">Electric • 15,000 miles</p>
-                        <button class="btn btn-secondary">View Details</button>
+        <div class="hero-visual">
+            <div class="hero-car-card">
+                <div class="hero-car-image" style="background: linear-gradient(135deg, #a78bfa 0%, #6d28d9 100%);"></div>
+                <div class="hero-car-info">
+                    <span class="badge badge-live">🔴 Live Now</span>
+                    <h3>2023 Porsche 911</h3>
+                    <div class="hero-bid-row">
+                        <span>Current Bid</span>
+                        <strong>$87,500</strong>
                     </div>
-                </div>
-
-                <!-- Auction Card 2 -->
-                <div class="auction-card">
-                    <div class="auction-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
-                    <div class="auction-info">
-                        <h3>2021 BMW 5 Series</h3>
-                        <p class="price">Starting Bid: $35,000</p>
-                        <p class="details">Luxury • 22,000 miles</p>
-                        <button class="btn btn-secondary">View Details</button>
-                    </div>
-                </div>
-
-                <!-- Auction Card 3 -->
-                <div class="auction-card">
-                    <div class="auction-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
-                    <div class="auction-info">
-                        <h3>2023 Honda Civic</h3>
-                        <p class="price">Starting Bid: $18,000</p>
-                        <p class="details">Compact • 8,000 miles</p>
-                        <button class="btn btn-secondary">View Details</button>
-                    </div>
-                </div>
-
-                <!-- Auction Card 4 -->
-                <div class="auction-card">
-                    <div class="auction-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
-                    <div class="auction-info">
-                        <h3>2020 Ford F-150</h3>
-                        <p class="price">Starting Bid: $22,000</p>
-                        <p class="details">Truck • 35,000 miles</p>
-                        <button class="btn btn-secondary">View Details</button>
+                    <div class="hero-bid-row muted">
+                        <span>⏱ Ends in</span>
+                        <span class="countdown" id="hero-countdown">02:14:33</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- Auctions Section -->
+    <section id="auctions" class="auctions">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Auctions</h2>
+                <p>Hand-picked vehicles from verified sellers — bid with confidence.</p>
+            </div>
+            <div class="auction-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="electric">Electric</button>
+                <button class="filter-btn" data-filter="luxury">Luxury</button>
+                <button class="filter-btn" data-filter="truck">Trucks</button>
+                <button class="filter-btn" data-filter="compact">Compact</button>
+            </div>
+            <div class="auction-grid">
+                <!-- Auction Card 1 -->
+                <div class="auction-card" data-category="electric">
+                    <div class="auction-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <span class="badge badge-live">🔴 Live</span>
+                    </div>
+                    <div class="auction-info">
+                        <h3>2022 Tesla Model 3</h3>
+                        <p class="details">Electric • 15,000 miles • AWD</p>
+                        <div class="bid-info">
+                            <div>
+                                <span class="bid-label">Current Bid</span>
+                                <p class="price">$27,400</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="bid-label">Ends in</span>
+                                <p class="countdown">04:22:10</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary">Place Bid</button>
+                    </div>
+                </div>
+
+                <!-- Auction Card 2 -->
+                <div class="auction-card" data-category="luxury">
+                    <div class="auction-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <span class="badge badge-hot">🔥 Hot</span>
+                    </div>
+                    <div class="auction-info">
+                        <h3>2021 BMW 5 Series</h3>
+                        <p class="details">Luxury • 22,000 miles • Sedan</p>
+                        <div class="bid-info">
+                            <div>
+                                <span class="bid-label">Current Bid</span>
+                                <p class="price">$36,800</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="bid-label">Ends in</span>
+                                <p class="countdown">01:05:47</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary">Place Bid</button>
+                    </div>
+                </div>
+
+                <!-- Auction Card 3 -->
+                <div class="auction-card" data-category="compact">
+                    <div class="auction-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <span class="badge badge-new">✨ New</span>
+                    </div>
+                    <div class="auction-info">
+                        <h3>2023 Honda Civic</h3>
+                        <p class="details">Compact • 8,000 miles • FWD</p>
+                        <div class="bid-info">
+                            <div>
+                                <span class="bid-label">Current Bid</span>
+                                <p class="price">$19,200</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="bid-label">Ends in</span>
+                                <p class="countdown">06:48:00</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary">Place Bid</button>
+                    </div>
+                </div>
+
+                <!-- Auction Card 4 -->
+                <div class="auction-card" data-category="truck">
+                    <div class="auction-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <span class="badge badge-live">🔴 Live</span>
+                    </div>
+                    <div class="auction-info">
+                        <h3>2020 Ford F-150</h3>
+                        <p class="details">Truck • 35,000 miles • 4WD</p>
+                        <div class="bid-info">
+                            <div>
+                                <span class="bid-label">Current Bid</span>
+                                <p class="price">$23,500</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="bid-label">Ends in</span>
+                                <p class="countdown">02:33:15</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary">Place Bid</button>
+                    </div>
+                </div>
+
+                <!-- Auction Card 5 -->
+                <div class="auction-card" data-category="luxury">
+                    <div class="auction-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                        <span class="badge badge-hot">🔥 Hot</span>
+                    </div>
+                    <div class="auction-info">
+                        <h3>2022 Mercedes C-Class</h3>
+                        <p class="details">Luxury • 18,000 miles • RWD</p>
+                        <div class="bid-info">
+                            <div>
+                                <span class="bid-label">Current Bid</span>
+                                <p class="price">$41,000</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="bid-label">Ends in</span>
+                                <p class="countdown">03:15:00</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary">Place Bid</button>
+                    </div>
+                </div>
+
+                <!-- Auction Card 6 -->
+                <div class="auction-card" data-category="electric">
+                    <div class="auction-image" style="background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);">
+                        <span class="badge badge-new">✨ New</span>
+                    </div>
+                    <div class="auction-info">
+                        <h3>2023 Rivian R1T</h3>
+                        <p class="details">Electric Truck • 5,000 miles • AWD</p>
+                        <div class="bid-info">
+                            <div>
+                                <span class="bid-label">Current Bid</span>
+                                <p class="price">$52,000</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="bid-label">Ends in</span>
+                                <p class="countdown">08:00:00</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary">Place Bid</button>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <a href="#contact" class="btn btn-outline">View All Listings →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Buying your next vehicle is easy — four simple steps to the keys.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">🔍</div>
+                    <h3>Browse Listings</h3>
+                    <p>Search and filter hundreds of verified vehicles by make, model, price range, and more.</p>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">📋</div>
+                    <h3>Register &amp; Inspect</h3>
+                    <p>Create a free account and review full vehicle history, inspection reports, and photos before bidding.</p>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">⚡</div>
+                    <h3>Place Your Bid</h3>
+                    <p>Set your maximum bid and let our smart bidding engine work for you. Outbid? We'll notify you instantly.</p>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">🚗</div>
+                    <h3>Drive Away</h3>
+                    <p>Win the auction, complete your secure payment, and we'll arrange delivery or pickup — it's that simple.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Why Choose Us Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2>Why Choose Us?</h2>
+            <div class="section-header">
+                <h2>Why Choose Us?</h2>
+                <p>We built the auction platform we always wanted — transparent, fast, and fair.</p>
+            </div>
             <div class="features-grid">
                 <div class="feature">
                     <div class="feature-icon">🏆</div>
                     <h3>Verified Listings</h3>
-                    <p>All vehicles are inspected and verified for authenticity</p>
+                    <p>Every vehicle is physically inspected and title-verified before going live on our platform.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">💰</div>
                     <h3>Best Prices</h3>
-                    <p>Competitive bidding ensures you get the best deals</p>
+                    <p>Competitive bidding from thousands of buyers ensures you always pay a fair market price.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">🔒</div>
                     <h3>Secure Transactions</h3>
-                    <p>Safe and secure payment methods for your peace of mind</p>
+                    <p>Escrow-based payments and end-to-end encryption protect every dollar you spend.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">📞</div>
                     <h3>Expert Support</h3>
-                    <p>Our team is available 24/7 to assist you</p>
+                    <p>Our team of automotive specialists is available 24/7 by phone, email, or live chat.</p>
                 </div>
+                <div class="feature">
+                    <div class="feature-icon">📜</div>
+                    <h3>Full Vehicle History</h3>
+                    <p>Accident records, service logs, and ownership history — all included, no hidden fees.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Nationwide Delivery</h3>
+                    <p>Win from anywhere in the country and have your vehicle delivered right to your door.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2>Never Miss a Great Deal</h2>
+                    <p>Get weekly alerts for new auction listings, price drops, and exclusive early-access sales delivered straight to your inbox.</p>
+                </div>
+                <form class="newsletter-form" novalidate>
+                    <input type="email" placeholder="Enter your email address" required aria-label="Email address">
+                    <button type="submit" class="btn btn-primary">Subscribe Free</button>
+                </form>
             </div>
         </div>
     </section>
@@ -115,26 +327,48 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Get in Touch</h2>
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <p>Have a question or want to list your vehicle? We'd love to hear from you.</p>
+            </div>
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="info-item">
-                        <h3>📍 Location</h3>
-                        <p>123 Auction Drive<br>Auto City, AC 12345</p>
+                        <div class="info-icon">📍</div>
+                        <div>
+                            <h3>Location</h3>
+                            <p>123 Auction Drive<br>Auto City, AC 12345</p>
+                        </div>
                     </div>
                     <div class="info-item">
-                        <h3>📧 Email</h3>
-                        <p><a href="mailto:info@letsdrive.com">info@letsdrive.com</a></p>
+                        <div class="info-icon">📧</div>
+                        <div>
+                            <h3>Email</h3>
+                            <p><a href="mailto:info@letsdrive.com">info@letsdrive.com</a></p>
+                        </div>
                     </div>
                     <div class="info-item">
-                        <h3>📱 Phone</h3>
-                        <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                        <div class="info-icon">📱</div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">🕐</div>
+                        <div>
+                            <h3>Hours</h3>
+                            <p>Mon–Fri: 8am – 8pm<br>Sat–Sun: 10am – 6pm</p>
+                        </div>
                     </div>
                 </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                <form class="contact-form" novalidate>
+                    <div class="form-row">
+                        <input type="text" placeholder="Your Name" required aria-label="Your name">
+                        <input type="email" placeholder="Your Email" required aria-label="Your email">
+                    </div>
+                    <input type="text" placeholder="Subject" aria-label="Subject">
+                    <textarea placeholder="Your Message" rows="5" required aria-label="Your message"></textarea>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
             </div>
@@ -144,13 +378,60 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Let's Drive Auction. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">FAQ</a>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">🚗 Let's Drive Auction</div>
+                    <p>The smarter way to buy and sell vehicles. Transparent auctions, verified listings, unbeatable prices.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Auctions</h4>
+                    <ul>
+                        <li><a href="#auctions">Browse All</a></li>
+                        <li><a href="#auctions">Live Auctions</a></li>
+                        <li><a href="#auctions">Ending Soon</a></li>
+                        <li><a href="#auctions">Featured Deals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#contact">Careers</a></li>
+                        <li><a href="#contact">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Let's Drive Auction. All rights reserved.</p>
+                <p>Built with ❤️ for car enthusiasts everywhere.</p>
             </div>
         </div>
     </footer>
+
+    <script src="main.js"></script>
 </body>
 </html>
